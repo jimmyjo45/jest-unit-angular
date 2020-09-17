@@ -1,0 +1,12 @@
+<div class="login-page">
+  <div class="form">
+    
+<br>
+    <form [formGroup]="detailsForm" (ngSubmit)="save()" class="login-form">
+        <mat-form-field>
+          <input matInput type = "text" formControlName="name" placeholder = "Name" />
+        </mat-form-field>
+      <button mat-raised-button type="submit">Save</button>
+    </form>
+  </div>
+</div>
