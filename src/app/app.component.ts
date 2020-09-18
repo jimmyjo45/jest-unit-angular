@@ -9,38 +9,10 @@ import { UserModel } from './user.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  user: UserModel;
-  link: any;
-  detailsForm: FormGroup;
-  userName: string;
-
-  constructor(private formBuilder: FormBuilder, private apiService: AppService ) { }
-
-  ngOnInit() {
-    this.generateUserForm(this.user);
-  }
 
 
-  generateUserForm(user) {
-    this.detailsForm = this.formBuilder.group({
-      name: [user && user.name ? user.name : null, [Validators.required, Validators.maxLength(40)]],
-    });
-    this.userName = user && user.name ? user.name : null;
-  }
+  constructor() { }
 
-  save() {
-    if (this.detailsForm.valid) {
-      // console.log(this.detailsForm);
-      this.apiService.get('login/' + this.userName).subscribe({
-        next: data => {
-          if (data) {
-            this.link = data;
-            window.location.href = this.link;
-            this.userName = ' ';
-          }
-        }
-      });
-    }
+  ngOnInit() { }
 
-  }
 }
